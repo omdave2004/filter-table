@@ -1,0 +1,1 @@
+﻿Website for the Filter Table Power BI custom visual. Deployed via GitHub Pages. The source of truth for these pages lives in the private filter-table-visual repository (docs/); edit there and copy across to publish.
