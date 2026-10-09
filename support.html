@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Support | od visuals</title>
+<meta name="description" content="Help with Filter Table for Power BI: how to get in touch, what to include, and answers to common questions.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/icon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="bar">
+  <div class="bar-in">
+    <a class="wordmark" href="index.html" aria-label="od visuals home">
+      <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><rect x="1" y="1" width="18" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="1" y="1" width="18" height="5" rx="2" fill="#1E5AA0"/><path d="M1 11h18M1 15h18M8 6v13" stroke="currentColor" stroke-width="1.2"/></svg>
+      od visuals
+    </a>
+    <nav class="tabs" aria-label="Pages">
+      <a href="index.html">Home</a>
+      <a href="filter-table.html">Filter Table</a>
+      <a href="support.html" aria-current="page">Support</a>
+      <a href="privacy.html">Privacy</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="canvas">
+    <section class="tile title-tile span-12" aria-labelledby="title">
+      <div class="tile-body">
+        <h1 id="title">Support</h1>
+        <p class="lead">Questions, bugs and ideas for Filter Table all go to one inbox, read by the person who builds it.</p>
+      </div>
+    </section>
+
+    <section class="tile span-4 contact-tile" aria-labelledby="contact">
+      <div class="get-body">
+        <h2 class="tile-title" id="contact">Email</h2>
+        <a class="mail" href="mailto:youhavereachedomdave@gmail.com?subject=Filter%20Table%20support">youhavereachedomdave@<wbr>gmail.com</a>
+        <p class="small muted">It helps to include:</p>
+        <ul class="plain small">
+          <li>Whether you are in Power BI Desktop (and its version) or the Service</li>
+          <li>The Filter Table version you installed (the latest is 1.0.1)</li>
+          <li>What you did, what you expected, and what happened</li>
+          <li>A screenshot, with any private data hidden</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="tile span-8" aria-labelledby="faq-title">
+      <div class="tile-head">
+        <h2 class="tile-title" id="faq-title">Common questions</h2>
+      </div>
+      <div class="tile-body">
+          <div class="faq">
+            <details>
+              <summary><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M4 2l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>Why does my filter not change the other visuals?</summary>
+              <div>
+                <p>Only columns from your model can become report filters. If the column is a measure, the filter still narrows the table, and the status bar under the table says it applies to this table only.</p>
+                <p>Also check the edit interactions between Filter Table and the other visual in Power BI Desktop (Format, Edit interactions). If they are set to None, the filter will not reach that visual.</p>
+              </div>
+            </details>
+            <details>
+              <summary><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M4 2l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>My column order and widths reset for readers. Why?</summary>
+              <div>
+                <p>Power BI does not let readers save changes to a visual in reading view. Set the layout in edit mode and save the report; that layout is what everyone sees. Readers can still rearrange columns for their own session.</p>
+              </div>
+            </details>
+            <details>
+              <summary><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M4 2l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>The table stops at 30,000 rows.</summary>
+              <div>
+                <p>Power BI sends data to visuals in segments. Filter Table shows a Load more button, or loads the rest automatically if you turn on Load all rows automatically in the Interactions card.</p>
+              </div>
+            </details>
+            <details>
+              <summary><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M4 2l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>Export to CSV does nothing.</summary>
+              <div>
+                <p>Export goes through Power BI's download service, which follows your organisation's export settings. If an admin has turned off export for custom visuals, the button cannot save a file. Ask your Power BI admin.</p>
+              </div>
+            </details>
+            <details>
+              <summary><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M4 2l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>Totals look wrong for a rate or percentage column.</summary>
+              <div>
+                <p>Open the Specific column card, pick the column, and set its Aggregation to Average, Minimum, Maximum or None. Rates and percentages should rarely be summed.</p>
+              </div>
+            </details>
+            <details>
+              <summary><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M4 2l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>Will an update break my saved reports?</summary>
+              <div>
+                <p>No. Updates keep the visual's identity and carry existing settings forward, including settings saved by older versions.</p>
+              </div>
+            </details>
+            <details>
+              <summary><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M4 2l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>Does it send my data anywhere?</summary>
+              <div>
+                <p>No. The visual makes no network requests and collects nothing. See the <a href="privacy.html">privacy policy</a>.</p>
+              </div>
+            </details>
+          </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="foot">
+  <span>od visuals, 2026. Power BI is a trademark of Microsoft.</span>
+  <nav aria-label="Footer">
+    <a href="index.html">Home</a>
+    <a href="filter-table.html">Filter Table</a>
+    <a href="privacy.html">Privacy</a>
+  </nav>
+</footer>
+</body>
+</html>

@@ -1,1 +1,5 @@
-﻿Website for the Filter Table Power BI custom visual. Deployed via GitHub Pages. The source of truth for these pages lives in the private filter-table-visual repository (docs/); edit there and copy across to publish.
+﻿# odvisuals.com
+
+The od visuals website: Filter Table, a free Power BI custom visual, with a live demo, download, support and privacy pages.
+
+Published from the private source repository. Edit there, not here.

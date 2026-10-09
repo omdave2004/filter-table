@@ -1,111 +1,101 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-AU">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Privacy Policy - Filter Table for Power BI</title>
-<meta name="description" content="Privacy policy for the Filter Table Power BI custom visual.">
-<style>
-    :root {
-        --navy: #1E3A5F;
-        --ink: #1F2937;
-        --muted: #5B6472;
-        --line: #D9DEE5;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-        font-family: "Segoe UI", -apple-system, Arial, sans-serif;
-        color: var(--ink); line-height: 1.7; font-size: 15px;
-    }
-    .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
-    header { border-bottom: 1px solid var(--line); }
-    .nav { display: flex; align-items: center; justify-content: space-between; height: 58px; }
-    .wordmark {
-        font-weight: 700; letter-spacing: .08em; font-size: 14px;
-        color: var(--navy); text-transform: uppercase; text-decoration: none;
-    }
-    .wordmark span { color: var(--muted); font-weight: 400; }
-    .nav a.back { font-size: 13px; color: var(--muted); text-decoration: none; }
-    .nav a.back:hover { color: var(--navy); }
-    main { padding: 48px 0 72px; }
-    h1 { font-size: 26px; margin-bottom: 4px; }
-    .updated { color: var(--muted); font-size: 13px; margin-bottom: 34px; }
-    h2 { font-size: 17px; margin: 30px 0 8px; }
-    p, li { color: var(--ink); }
-    ul { padding-left: 22px; margin: 8px 0; }
-    a { color: var(--navy); }
-    .plain {
-        border: 1px solid var(--line); background: #F4F6F8;
-        padding: 16px 20px; margin: 20px 0 6px; font-size: 14px;
-    }
-</style>
+<title>Privacy | od visuals</title>
+<meta name="description" content="Privacy policy for Filter Table for Power BI and the od visuals website. The visual makes no network requests and collects no data.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/icon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 
-<header>
-    <div class="wrap nav">
-        <a class="wordmark" href="./">Filter Table <span>for Power BI</span></a>
-        <a class="back" href="./">Back to product page</a>
-    </div>
+<header class="bar">
+  <div class="bar-in">
+    <a class="wordmark" href="index.html" aria-label="od visuals home">
+      <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><rect x="1" y="1" width="18" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="1" y="1" width="18" height="5" rx="2" fill="#1E5AA0"/><path d="M1 11h18M1 15h18M8 6v13" stroke="currentColor" stroke-width="1.2"/></svg>
+      od visuals
+    </a>
+    <nav class="tabs" aria-label="Pages">
+      <a href="index.html">Home</a>
+      <a href="filter-table.html">Filter Table</a>
+      <a href="support.html">Support</a>
+      <a href="privacy.html" aria-current="page">Privacy</a>
+    </nav>
+  </div>
 </header>
 
-<main>
-    <div class="wrap">
-        <h1>Privacy Policy</h1>
-        <div class="updated">Effective 14 August 2026 &middot; Applies to the Filter Table custom visual for Microsoft Power BI</div>
-
-        <div class="plain">
-            The short version: Filter Table runs entirely inside Power BI on your machine or browser.
-            It makes no network calls, collects no data, and sends nothing to us or to anyone else.
+<main id="main">
+  <div class="canvas">
+    <section class="tile title-tile span-12" aria-labelledby="title">
+      <div class="tile-body">
+        <h1 id="title">Privacy</h1>
+        <p class="lead">Filter Table runs entirely inside Power BI. It makes no network requests, collects no data, and sends nothing to od visuals or anyone else.</p>
+        <div class="facts-line">
+          <span>Effective 7 October 2026</span>
+          <span>Applies to the Filter Table custom visual for Microsoft Power BI and this website</span>
         </div>
+      </div>
+    </section>
 
-        <h2>What the visual does with your data</h2>
-        <p>
-            Filter Table displays data that Power BI supplies to it inside Power BI's sandboxed
-            visual environment. All filtering, sorting, grouping, formatting and rendering happens
-            locally within that sandbox. The visual contains no analytics, telemetry, tracking or
-            error-reporting code and communicates with no external servers.
-        </p>
+    <section class="tile span-4 glance-tile" aria-labelledby="glance">
+      <div class="tile-head">
+        <h2 class="tile-title" id="glance">At a glance</h2>
+      </div>
+      <div class="tile-body">
+        <dl class="defs spec">
+          <dt>Network requests</dt><dd>None</dd>
+          <dt>Data collected</dt><dd>None</dd>
+          <dt>Cookies</dt><dd>None</dd>
+          <dt>Analytics</dt><dd>None</dd>
+          <dt>Stored</dt><dd>Layout and formatting, inside your report</dd>
+          <dt>Contact</dt><dd><a class="wrap-any" href="mailto:youhavereachedomdave@gmail.com">youhavereachedomdave@<wbr>gmail.com</a></dd>
+        </dl>
+      </div>
+    </section>
 
-        <h2>What the visual stores</h2>
-        <ul>
-            <li><strong>Layout settings</strong> (column order, widths, hidden columns) and formatting
-                choices are saved into the Power BI report file itself, using Power BI's standard
-                settings mechanism. They stay wherever your report is stored and are governed by
-                your organisation's Power BI arrangements with Microsoft.</li>
-            <li><strong>CSV export</strong> is only ever started by you, and the file is produced
-                through Power BI's own download service to your device. We never see it.</li>
-            <li><strong>Copy actions</strong> place cell or row text on your local clipboard only.</li>
-        </ul>
+    <section class="tile span-8" aria-labelledby="policy">
+      <div class="tile-head">
+        <h2 class="tile-title" id="policy">Policy</h2>
+      </div>
+      <div class="tile-body">
+        <dl class="defs defs-wide">
+          <dt>What the visual does with your data</dt>
+          <dd>Filter Table displays the data Power BI gives it inside Power BI's sandboxed visual environment. All filtering, sorting, grouping, formatting and drawing happens there. The visual contains no analytics, telemetry, tracking or error reporting, and talks to no external servers.</dd>
 
-        <h2>What we collect</h2>
-        <p>
-            Nothing. We have no servers, no accounts, no cookies and no way to observe your usage
-            of the visual. If you email us for support, we will see whatever you choose to include
-            in that email and use it only to help you.
-        </p>
+          <dt>What the visual stores</dt>
+          <dd>Layout and formatting choices, such as column order, widths and hidden columns, are saved in the Power BI report itself using Power BI's standard settings. They stay wherever your report is stored and are covered by your organisation's arrangements with Microsoft.</dd>
 
-        <h2>This website</h2>
-        <p>
-            This site is a set of static pages hosted on GitHub Pages. It sets no cookies and runs
-            no analytics. GitHub, as the hosting provider, may keep standard technical logs
-            (such as IP addresses) as described in
-            <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener">GitHub's privacy statement</a>.
-        </p>
+          <dt>Export and copy</dt>
+          <dd>CSV export only starts when you ask for it, and the file is produced by Power BI's own download service on your device. Copy puts cell or row text on your local clipboard. We never see either.</dd>
 
-        <h2>Changes</h2>
-        <p>
-            If the visual's behaviour ever changes in a way that affects this policy, we will update
-            this page and the effective date above before releasing that version.
-        </p>
+          <dt>What we collect</dt>
+          <dd>Nothing. There are no servers, accounts or cookies, and no way for us to observe how you use the visual. If you email us for support, we see what you choose to send and use it only to help you.</dd>
 
-        <h2>Contact</h2>
-        <p>
-            Questions about this policy or the visual:
-            <a href="mailto:youhavereachedomdave@gmail.com">youhavereachedomdave@gmail.com</a>
-        </p>
-    </div>
+          <dt>This website</dt>
+          <dd>This site is a set of static pages. It sets no cookies and runs no analytics, and the live demo runs in your browser on synthetic data. The hosting provider may keep standard technical logs, such as IP addresses, under its own privacy terms.</dd>
+
+          <dt>Changes</dt>
+          <dd>If the visual ever changes in a way that affects this policy, this page and its effective date will be updated before that version is released.</dd>
+
+          <dt>Contact</dt>
+          <dd>Questions about this policy or the visual: <a href="mailto:youhavereachedomdave@gmail.com">youhavereachedomdave@gmail.com</a></dd>
+        </dl>
+      </div>
+    </section>
+  </div>
 </main>
 
+<footer class="foot">
+  <span>od visuals, 2026. Power BI is a trademark of Microsoft.</span>
+  <nav aria-label="Footer">
+    <a href="index.html">Home</a>
+    <a href="filter-table.html">Filter Table</a>
+    <a href="support.html">Support</a>
+  </nav>
+</footer>
 </body>
 </html>

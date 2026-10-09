@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Filter Table for Power BI | od visuals</title>
+<meta name="description" content="Filter Table is a free Power BI custom visual with a search and value filter under every column. Its filters are real report filters, so the whole page responds.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/icon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="bar">
+  <div class="bar-in">
+    <a class="wordmark" href="index.html" aria-label="od visuals home">
+      <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><rect x="1" y="1" width="18" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="1" y="1" width="18" height="5" rx="2" fill="#1E5AA0"/><path d="M1 11h18M1 15h18M8 6v13" stroke="currentColor" stroke-width="1.2"/></svg>
+      od visuals
+    </a>
+    <nav class="tabs" aria-label="Pages">
+      <a href="index.html">Home</a>
+      <a href="filter-table.html" aria-current="page">Filter Table</a>
+      <a href="support.html">Support</a>
+      <a href="privacy.html">Privacy</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="canvas" id="report">
+    <section class="tile title-tile span-12" aria-labelledby="title">
+      <div class="tile-body">
+        <div class="split">
+          <div class="split-main">
+            <h1 id="title">Filter Table</h1>
+            <p class="lead">A table visual for Power BI with a search and value filter under every column. Readers find their own rows, and because the filters are real report filters, the rest of the page follows.</p>
+          </div>
+          <dl class="defs split-side spec">
+            <dt>Version</dt><dd>1.0.1</dd>
+            <dt>Price</dt><dd>Free</dd>
+            <dt>Works in</dt><dd>Power BI Desktop and the Power BI Service</dd>
+            <dt>Visuals API</dt><dd>5.11</dd>
+            <dt>Network access</dt><dd>None</dd>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <section class="tile visual-tile span-12" aria-labelledby="demo-title" id="demo">
+      <div class="tile-head">
+        <h2 class="tile-title" id="demo-title">Live demo</h2>
+        <span class="tile-note">Synthetic warehouse data, 600 rows</span>
+      </div>
+      <div class="preset-row">
+        <span class="small muted" id="preset-label">Style preset</span>
+        <div class="segments" role="group" aria-labelledby="preset-label" id="presets"></div>
+      </div>
+      <div class="visual-mount" id="mount" role="region" aria-label="Filter Table live demo"></div>
+    </section>
+
+    <section class="tile span-12 try-tile" aria-labelledby="try-title">
+      <div class="tile-head">
+        <h2 class="tile-title" id="try-title">Try each feature</h2>
+        <button type="button" class="link-btn" id="try-reset">Reset the demo</button>
+      </div>
+      <div class="tile-body">
+        <p class="small muted try-intro">Each button runs the feature in the live table above, the way a reader or author would.</p>
+        <ul class="try-list">
+          <li data-try-row="filter"><div><h3>A filter under every column</h3><p>Text columns get a value list with search, numbers get a range, dates get a from and to.</p></div><button type="button" class="btn btn-quiet" data-try="filter" aria-label="Show me: A filter under every column">Show me <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M5 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button></li>
+          <li data-try-row="chips"><div><h3>Every active filter in view</h3><p>Each filter shows as a chip above the rows, and each one clears on its own.</p></div><button type="button" class="btn btn-quiet" data-try="chips" aria-label="Show me: Every active filter in view">Show me <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M5 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button></li>
+          <li data-try-row="search"><div><h3>Search the whole table</h3><p>One box searches every column at once and narrows only this table.</p></div><button type="button" class="btn btn-quiet" data-try="search" aria-label="Show me: Search the whole table">Show me <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M5 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button></li>
+          <li data-try-row="freeze"><div><h3>Freeze key columns</h3><p>Keep the first columns in place while the rest scroll sideways.</p></div><button type="button" class="btn btn-quiet" data-try="freeze" aria-label="Show me: Freeze key columns">Show me <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M5 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button></li>
+          <li data-try-row="columns"><div><h3>Readers arrange their own view</h3><p>Drag any header to move a column, and show or hide columns from the Columns menu.</p></div><button type="button" class="btn btn-quiet" data-try="columns" aria-label="Show me: Readers arrange their own view">Show me <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M5 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button></li>
+          <li data-try-row="group"><div><h3>Group rows with subtotals</h3><p>Group by any field, with a subtotal under each group.</p></div><button type="button" class="btn btn-quiet" data-try="group" aria-label="Show me: Group rows with subtotals">Show me <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M5 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button></li>
+          <li data-try-row="pages"><div><h3>Pages for long tables</h3><p>Page through rows, or let long tables scroll smoothly with virtual scrolling.</p></div><button type="button" class="btn btn-quiet" data-try="pages" aria-label="Show me: Pages for long tables">Show me <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M5 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="tile span-12 json-tile" aria-labelledby="json-title">
+      <div class="tile-head">
+        <h2 class="tile-title" id="json-title">What Power BI receives</h2>
+      </div>
+      <div class="tile-body">
+        <p class="small muted json-intro">Each filter you set in the demo is sent to the report as a standard Power BI JSON filter. This is the exact payload, live.</p>
+      </div>
+      <div class="code-wrap"><pre class="code" data-filter-json aria-live="polite" tabindex="0" aria-label="Filter JSON sent to Power BI"></pre></div>
+      <p class="filters-on" data-filters-on></p>
+    </section>
+  </div>
+
+  <div class="canvas">
+    <section class="tile span-12" aria-labelledby="does">
+      <div class="tile-head">
+        <h2 class="tile-title" id="does">What it does</h2>
+        <span class="tile-note">All of it free. Nothing needs a server or an account.</span>
+      </div>
+      <div class="tile-body">
+            <table class="grid-table features">
+              <colgroup><col class="col-area"><col></colgroup>
+              <thead><tr><th scope="col">Area</th><th scope="col">What you get</th></tr></thead>
+              <tbody>
+                <tr><td>Column filters</td><td>A value list with search and Blank for text, a range or value search for numbers, a from and to for dates. Active filters show as chips you can clear one at a time.</td></tr>
+                <tr><td>Report filtering</td><td>Column filters are applied as Power BI filters, so other visuals respond and bookmarks restore them. A separate search bar filters only the table.</td></tr>
+                <tr><td>Totals and grouping</td><td>Totals with an aggregation chosen per column, grouping with subtotals, and rates and percentages that are never summed by accident.</td></tr>
+                <tr><td>Formats and colour</td><td>Model formats kept, with per-column overrides. Conditional colours with a lower is better option, data bars, and five style presets: Modern, Corporate, Minimal, Midnight and Ledger.</td></tr>
+                <tr><td>Layout</td><td>Frozen columns, column move and resize by dragging, hidden columns, saved layouts and pagination or virtual scrolling.</td></tr>
+                <tr><td>Rows</td><td>Row selection that cross-highlights the report, copy, and CSV export through Power BI's own download service.</td></tr>
+                <tr><td>Large tables</td><td>Loads 30,000 rows at a time and can fetch more on request or automatically.</td></tr>
+                <tr><td>Accessibility</td><td>Keyboard sorting and row navigation, Escape closes any popup, sort state announced to screen readers, and full support for high contrast mode.</td></tr>
+              </tbody>
+            </table>
+      </div>
+    </section>
+
+    <section class="tile span-7 format-tile" aria-labelledby="pane">
+      <div class="tile-head">
+        <h2 class="tile-title" id="pane">Format pane</h2>
+        <span class="tile-note">Ten cards, saved reports keep their settings</span>
+      </div>
+      <div class="tile-body">
+        <div class="pane">
+          <details><summary><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M4 2l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>Style presets</summary><p>Start from Modern, Corporate, Minimal, Midnight or Ledger, then adjust anything below.</p></details>
+          <details><summary><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M4 2l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>Column headers</summary><p>Font, size, weight, colours, alignment and wrapping for the header row.</p></details>
+          <details><summary><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M4 2l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>Values</summary><p>Font and emphasis for cells, alignment, background and alternating row colours.</p></details>
+          <details><summary><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M4 2l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>Gridlines and border</summary><p>Row and column lines, their colours and the outer border.</p></details>
+          <details><summary><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M4 2l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>Column layout</summary><p>Frozen columns and drag to reorder, plus column widths, sizing and row height.</p></details>
+          <details><summary><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M4 2l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>Filters and search</summary><p>The filter under every header, how numeric columns filter (range or value search), and the table-only search bar.</p></details>
+          <details><summary><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M4 2l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>Totals and grouping</summary><p>Grouping by a field with subtotals, and the totals row.</p></details>
+          <details><summary><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M4 2l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>Cell elements</summary><p>Conditional colours, data bars and web links, set per field.</p></details>
+          <details><summary><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M4 2l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>Interactions</summary><p>Row selection, copy, CSV export, pages and loading more rows.</p></details>
+          <details><summary><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M4 2l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>Specific column</summary><p>Format, aggregation, width and total behaviour for one column at a time.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <div class="span-5 stack">
+    <section class="tile get-tile" aria-labelledby="get">
+      <div class="tile-head">
+        <h2 class="tile-title" id="get">Get Filter Table</h2>
+      </div>
+      <div class="get-body">
+        <p>Filter Table is free. Download the file, then add it in Power BI Desktop:</p>
+        <ol class="steps">
+          <li>In the Visualizations pane, select the three dots, <b>Get more visuals</b>.</li>
+          <li>Choose <b>Import a visual from a file</b> and pick <b>FilterTable-1.0.1.pbiviz</b>.</li>
+          <li>Drag your fields into the table and open the Format pane.</li>
+        </ol>
+        <div class="actions">
+          <a class="btn" href="downloads/FilterTable-1.0.1.pbiviz" download>Download Filter Table</a>
+          <a class="btn btn-quiet" href="support.html">Support</a>
+        </div>
+        <p class="small muted">Version 1.0.1, 74 KB. A Microsoft AppSource listing is on its way.</p>
+      </div>
+    </section>
+
+    <section class="tile" aria-labelledby="limits">
+      <div class="tile-head">
+        <h2 class="tile-title" id="limits">Good to know</h2>
+      </div>
+      <div class="tile-body">
+          <dl class="defs defs-wide">
+            <dt>Measures</dt>
+            <dd>Filters on measures cannot become report filters in Power BI. They still filter the table, and the status bar says so.</dd>
+            <dt>Reading view</dt>
+            <dd>Readers can filter, sort, resize and move columns, but Power BI does not let them save changes. Anything that should stick for everyone is set by the author in edit mode.</dd>
+            <dt>Exporting</dt>
+            <dd>CSV export uses Power BI's download service, so it follows your organisation's export settings.</dd>
+            <dt>Privacy</dt>
+            <dd>The visual makes no network requests and collects nothing. <a href="privacy.html">Read the privacy policy</a>.</dd>
+          </dl>
+      </div>
+    </section>
+    </div>
+  </div>
+</main>
+
+<footer class="foot">
+  <span>od visuals, 2026. Power BI is a trademark of Microsoft.</span>
+  <nav aria-label="Footer">
+    <a href="index.html">Home</a>
+    <a href="support.html">Support</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="mailto:youhavereachedomdave@gmail.com">youhavereachedomdave@gmail.com</a>
+  </nav>
+</footer>
+
+<script>window.powerbi = { visuals: {} };</script>
+<script src="assets/filter-table-1.0.1.js"></script>
+<script src="assets/sample-data.js"></script>
+<script src="assets/report.js"></script>
+<script>
+  (function () {
+    var demo = ODReport.start({ mount: document.getElementById("mount"), tiles: document.getElementById("report"), preset: 0 });
+    var group = document.getElementById("presets");
+    ODReport.presets.forEach(function (name, i) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.textContent = name;
+      b.setAttribute("aria-pressed", i === 0 ? "true" : "false");
+      b.addEventListener("click", function () {
+        group.querySelectorAll("button").forEach(function (x) { x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
+        if (demo) demo.setPreset(i);
+      });
+      group.appendChild(b);
+    });
+
+    /* Try each feature: every button starts from a clean demo, then does what
+       a reader (or, for layout settings, an author) would do. */
+    if (!demo) return;
+    // Each feature is a list of steps; a newer click stops an older run between steps.
+    var steps = {
+      filter: [
+        function () { return demo.openFilter("Category"); },
+        function () { return demo.tick("Paint"); },
+        function () { return demo.tick("Timber"); }
+      ],
+      chips: [
+        function () { return demo.openFilter("Category"); },
+        function () { return demo.tick("Hardware"); },
+        function () { return demo.closePopups(); },
+        function () { return demo.setRange("Units", 500); }
+      ],
+      search: [function () { return demo.search("Returns"); }],
+      freeze: [
+        function () { return demo.set("powerFeatures", { sizingMode: 2, equalColumnWidth: 230 }); },
+        function () { return demo.set("tableStyle", { frozenColumns: 2 }); },
+        function () { return demo.scrollTable(420); }
+      ],
+      columns: [function () { return demo.openColumnsMenu(); }],
+      group: [function () { return demo.set("powerFeatures", { groupByField: "Movements.Destination" }); }],
+      pages: [function () { return demo.set("proFeatures", { enablePagination: true, pageSize: 25 }); }]
+    };
+    var list = document.querySelector(".try-list");
+    var demoTile = document.getElementById("demo");
+    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var runId = 0;
+    function run(id) {
+      var mine = ++runId;
+      var chain = demo.reset();
+      steps[id].forEach(function (step) {
+        chain = chain.then(function () { if (mine === runId) return step(); });
+      });
+      return chain.catch(function () {});
+    }
+    function mark(id) {
+      list.querySelectorAll("li").forEach(function (li) {
+        var on = li.getAttribute("data-try-row") === id;
+        li.classList.toggle("is-on", on);
+        li.querySelector("button").setAttribute("aria-pressed", on ? "true" : "false");
+      });
+    }
+    list.addEventListener("click", function (e) {
+      var btn = e.target.closest("[data-try]");
+      if (!btn) return;
+      var id = btn.getAttribute("data-try");
+      mark(id);
+      demoTile.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+      var ticket = ++runId;
+      setTimeout(function () { if (ticket === runId) run(id); }, reduce ? 0 : 450);
+    });
+    document.getElementById("try-reset").addEventListener("click", function () {
+      runId++;
+      mark(null);
+      demo.reset();
+    });
+  })();
+</script>
+</body>
+</html>

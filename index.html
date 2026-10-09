@@ -1,232 +1,169 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-AU">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Filter Table for Power BI</title>
-<meta name="description" content="Filter Table is a Power BI custom visual with per-column filters, multi-select dropdowns, sorting, grouping, totals, CSV export and five style presets.">
-<style>
-    :root {
-        --navy: #1E3A5F;
-        --navy-dark: #16304F;
-        --ink: #1F2937;
-        --muted: #5B6472;
-        --line: #D9DEE5;
-        --bg: #FFFFFF;
-        --bg-alt: #F4F6F8;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-        font-family: "Segoe UI", -apple-system, Arial, sans-serif;
-        color: var(--ink);
-        background: var(--bg);
-        line-height: 1.6;
-        font-size: 16px;
-    }
-    a { color: var(--navy); }
-    .wrap { max-width: 980px; margin: 0 auto; padding: 0 24px; }
-
-    header {
-        border-bottom: 1px solid var(--line);
-        background: var(--bg);
-        position: sticky; top: 0; z-index: 10;
-    }
-    .nav {
-        display: flex; align-items: center; justify-content: space-between;
-        height: 58px;
-    }
-    .wordmark {
-        font-weight: 700; letter-spacing: .08em; font-size: 14px;
-        color: var(--navy); text-transform: uppercase; text-decoration: none;
-    }
-    .wordmark span { color: var(--muted); font-weight: 400; }
-    nav.links a {
-        text-decoration: none; color: var(--muted); font-size: 13px;
-        margin-left: 22px;
-    }
-    nav.links a:hover { color: var(--navy); }
-
-    .hero { padding: 72px 0 56px; border-bottom: 1px solid var(--line); }
-    .hero h1 { font-size: 34px; line-height: 1.25; max-width: 620px; color: var(--ink); }
-    .hero p.lead { font-size: 17px; color: var(--muted); max-width: 560px; margin: 18px 0 30px; }
-    .btn {
-        display: inline-block; text-decoration: none; font-size: 14px; font-weight: 600;
-        padding: 11px 22px; border: 1px solid var(--navy);
-    }
-    .btn.primary { background: var(--navy); color: #fff; }
-    .btn.primary:hover { background: var(--navy-dark); }
-    .btn.secondary { background: #fff; color: var(--navy); margin-left: 10px; }
-    .btn.secondary:hover { background: var(--bg-alt); }
-    .hero .note { font-size: 12px; color: var(--muted); margin-top: 14px; }
-
-    section { padding: 56px 0; border-bottom: 1px solid var(--line); }
-    section h2 {
-        font-size: 13px; text-transform: uppercase; letter-spacing: .12em;
-        color: var(--navy); margin-bottom: 28px;
-    }
-    .features {
-        display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-        gap: 1px; background: var(--line); border: 1px solid var(--line);
-    }
-    .feature { background: var(--bg); padding: 20px 22px; }
-    .feature h3 { font-size: 15px; margin-bottom: 6px; color: var(--ink); }
-    .feature p { font-size: 13px; color: var(--muted); }
-
-    .demo-frame {
-        width: 100%; height: 640px; border: 1px solid var(--line); background: var(--bg-alt);
-    }
-    .demo-caption { font-size: 13px; color: var(--muted); margin-top: 10px; }
-
-    ol.steps { padding-left: 20px; max-width: 640px; }
-    ol.steps li { margin-bottom: 12px; font-size: 15px; }
-    ol.steps li strong { color: var(--ink); }
-    .callout {
-        border-left: 3px solid var(--navy); background: var(--bg-alt);
-        padding: 14px 18px; font-size: 14px; color: var(--muted);
-        max-width: 640px; margin-top: 22px;
-    }
-
-    .faq dt { font-weight: 600; font-size: 15px; margin-top: 22px; }
-    .faq dd { color: var(--muted); font-size: 14px; margin-top: 6px; max-width: 680px; }
-
-    table.versions { border-collapse: collapse; font-size: 14px; margin-top: 6px; }
-    table.versions th, table.versions td {
-        text-align: left; padding: 8px 18px 8px 0; border-bottom: 1px solid var(--line);
-        vertical-align: top;
-    }
-    table.versions th { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
-
-    footer { padding: 34px 0 44px; font-size: 13px; color: var(--muted); }
-    footer a { color: var(--muted); }
-    @media (max-width: 640px) {
-        .hero h1 { font-size: 26px; }
-        nav.links a { margin-left: 12px; }
-        .btn.secondary { margin-left: 0; margin-top: 10px; }
-    }
-</style>
+<title>od visuals | Filter Table for Power BI</title>
+<meta name="description" content="od visuals makes custom visuals for Power BI. Filter Table puts a search and value filter under every column, and its filters drive the whole report.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/icon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 
-<header>
-    <div class="wrap nav">
-        <a class="wordmark" href="./">Filter Table <span>for Power BI</span></a>
-        <nav class="links">
-            <a href="#features">Features</a>
-            <a href="#demo">Demo</a>
-            <a href="#install">Install</a>
-            <a href="#faq">FAQ</a>
-            <a href="#support">Support</a>
-        </nav>
-    </div>
+<header class="bar">
+  <div class="bar-in">
+    <a class="wordmark" href="index.html" aria-label="od visuals home">
+      <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><rect x="1" y="1" width="18" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="1" y="1" width="18" height="5" rx="2" fill="#1E5AA0"/><path d="M1 11h18M1 15h18M8 6v13" stroke="currentColor" stroke-width="1.2"/></svg>
+      od visuals
+    </a>
+    <nav class="tabs" aria-label="Pages">
+      <a href="index.html" aria-current="page">Home</a>
+      <a href="filter-table.html">Filter Table</a>
+      <a href="support.html">Support</a>
+      <a href="privacy.html">Privacy</a>
+    </nav>
+  </div>
 </header>
 
-<div class="hero">
-    <div class="wrap">
-        <h1>The table your report readers can actually filter.</h1>
-        <p class="lead">
-            Filter Table puts a search box and a value picker under every column header,
-            so anyone reading the report can narrow the data without touching slicers or
-            the filter pane. Sorting, grouping, totals and CSV export included.
-        </p>
-        <a class="btn primary" href="demo.html">Open the live demo</a>
-        <a class="btn secondary" href="#install">How to install</a>
-        <div class="note">AppSource listing in progress. Available today as a .pbiviz import.</div>
-    </div>
-</div>
-
-<section id="features">
-    <div class="wrap">
-        <h2>Features</h2>
-        <div class="features">
-            <div class="feature"><h3>Per-column filters</h3><p>A search box under every header. Text columns get a multi-select value dropdown, numbers get min/max or value search, dates get a from/to range.</p></div>
-            <div class="feature"><h3>Filters the whole report</h3><p>Column filters apply as real Power BI filters, so your other visuals respond to them just like slicers.</p></div>
-            <div class="feature"><h3>Global search</h3><p>One box that searches every visible column at once, with filter chips that show exactly what is active.</p></div>
-            <div class="feature"><h3>Cross-filter selection</h3><p>Click rows (Ctrl and Shift work as you expect) to highlight matching data in the rest of the page.</p></div>
-            <div class="feature"><h3>Grouping and totals</h3><p>Group by any column with collapsible sections and subtotals, plus an overall totals row for numeric columns.</p></div>
-            <div class="feature"><h3>Five style presets</h3><p>Modern, Corporate, Minimal, Midnight and Ledger. One dropdown restyles the entire table, or keep Modern and set your own colours.</p></div>
-            <div class="feature"><h3>Layouts that persist</h3><p>Column order, widths and hidden columns are saved into the report itself, so the layout survives refreshes and travels with the file.</p></div>
-            <div class="feature"><h3>CSV export</h3><p>Export the filtered result, not the raw table, with a single button. Copy single cells or whole selected rows from the right-click menu.</p></div>
-            <div class="feature"><h3>Frozen columns and paging</h3><p>Pin up to five columns to the left edge, paginate large results, and drag column edges or headers to resize and reorder.</p></div>
-            <div class="feature"><h3>Conditional formatting</h3><p>Colour numeric cells against a fixed target, a percentage of the column maximum, or simple positive/negative rules. Optional in-cell data bars.</p></div>
-            <div class="feature"><h3>Hyperlinks that work</h3><p>URLs in your data render as safe, clickable links that open through Power BI's own link handling.</p></div>
-            <div class="feature"><h3>Accessible by default</h3><p>Keyboard sorting and selection, screen-reader sort states, high-contrast mode support and report-page tooltips.</p></div>
+<main id="main">
+  <div class="canvas home-report" id="report">
+    <div class="span-8 stack">
+      <section class="tile title-tile" aria-labelledby="title">
+        <div class="tile-body">
+          <h1 id="title">Filter Table</h1>
+          <p class="lead">A Power BI table with a search and value filter under every column. Readers narrow the data themselves, and every other visual on the page follows.</p>
+          <div class="actions title-actions">
+            <a class="btn" href="downloads/FilterTable-1.0.1.pbiviz" download>Download Filter Table</a>
+            <a class="btn btn-quiet" href="#demo">Try the live demo</a>
+          </div>
+          <div class="facts-line">
+            <span><b>Free</b></span>
+            <span>Version 1.0.1</span>
+            <span>Power BI Desktop and Service</span>
+            <span>Made by od visuals</span>
+          </div>
         </div>
-    </div>
-</section>
+      </section>
 
-<section id="demo">
-    <div class="wrap">
-        <h2>Live demo</h2>
-        <iframe class="demo-frame" src="demo.html" title="Filter Table interactive demo" loading="lazy"></iframe>
-        <p class="demo-caption">
-            This is the actual visual running on sample warehouse data, not a video.
-            Try the column filters, click the headers to sort, and switch style presets with the buttons.
-            <a href="demo.html">Open it full screen</a>.
-        </p>
-    </div>
-</section>
-
-<section id="install">
-    <div class="wrap">
-        <h2>Install</h2>
-        <ol class="steps">
-            <li><strong>Get the file.</strong> Download the latest <code>.pbiviz</code> from the link below, or wait for the AppSource listing to go live.</li>
-            <li><strong>Import it.</strong> In Power BI Desktop, open the Visualizations pane, choose the three-dots menu, then <strong>Import a visual from a file</strong> and pick the downloaded file.</li>
-            <li><strong>Add your data.</strong> Drop the new icon onto the canvas and drag any fields, text, numbers or dates, into the single <strong>Columns</strong> bucket.</li>
-            <li><strong>Make it yours.</strong> Everything else lives in the Format pane: style presets, filters, grouping, totals, pagination, export and more.</li>
-        </ol>
-        <div class="callout">
-            For organisation-wide deployment, a Power BI administrator can add the same file
-            under <strong>Admin portal &gt; Organizational visuals</strong>, which makes it available
-            to every report author in the tenant.
+      <section class="tile visual-tile" aria-labelledby="demo-title" id="demo">
+        <div class="tile-head">
+          <h2 class="tile-title" id="demo-title">Warehouse movements</h2>
+          <span class="tile-note">Live demo on synthetic data, 600 rows</span>
         </div>
-    </div>
-</section>
-
-<section id="faq">
-    <div class="wrap">
-        <h2>Questions</h2>
-        <dl class="faq">
-            <dt>Does my data leave Power BI?</dt>
-            <dd>No. The visual runs entirely inside Power BI's sandbox and makes no network calls. Nothing is collected, transmitted or stored outside your report. See the <a href="privacy.html">privacy policy</a>.</dd>
-            <dt>Is there a row limit?</dt>
-            <dd>Power BI supplies custom visuals with up to 30,000 rows. When the limit is reached the status bar says so. For readability, the table renders up to 1,000 rows at a time unless pagination is on; filtering, totals and export always cover everything.</dd>
-            <dt>Do the column filters affect other visuals?</dt>
-            <dd>Yes, they are applied as standard Power BI filters on the page, and row selection cross-highlights the rest of the page the same way built-in visuals do.</dd>
-            <dt>Will saved layouts follow the report?</dt>
-            <dd>Yes. Column order, widths and hidden columns are stored in the report file itself, so they persist across refreshes and for anyone who opens the report.</dd>
-            <dt>Is it certified?</dt>
-            <dd>The visual targets AppSource listing first. It already passes the platform's validation tooling; Microsoft certification is a separate program we may pursue later.</dd>
-        </dl>
-    </div>
-</section>
-
-<section id="support">
-    <div class="wrap">
-        <h2>Support</h2>
-        <p style="max-width:640px;font-size:15px;">
-            Found a bug, need a feature, or have a question about the visual?
-            Email <a href="mailto:youhavereachedomdave@gmail.com">youhavereachedomdave@gmail.com</a>
-            with your Power BI version and, if possible, a screenshot. Most messages get a reply
-            within two business days.
+        <p class="try">
+          <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v11M3.5 8.5 8 13l4.5-4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></svg>
+          Try it: open the Category filter under its header, tick two values, and watch the cards and chart on this page change.
         </p>
-        <h2 style="margin-top:40px;">Version history</h2>
-        <table class="versions">
-            <tr><th>Version</th><th>Notes</th></tr>
-            <tr><td>2.1.0</td><td>Landing page, keyboard navigation, report-page tooltips, render cap for very large unpaginated results, dashboard interaction handling.</td></tr>
-            <tr><td>2.0.0</td><td>Full source rebuild. Five style presets, persistent layouts, cross-filter row selection, report-level column filters.</td></tr>
-            <tr><td>1.9.x</td><td>Original release line: per-column filters, grouping, totals, CSV export, frozen columns.</td></tr>
+        <div class="visual-mount" id="mount" role="region" aria-label="Filter Table live demo"></div>
+      </section>
+    </div>
+
+    <aside class="span-4 cards" aria-label="Report visuals that respond to the table's filters">
+      <div class="tile card-visual">
+        <div class="card-value" data-kpi="rows">600</div>
+        <div class="card-label">Rows</div>
+        <div class="card-of" data-kpi-of="rows">All rows</div>
+      </div>
+      <div class="tile card-visual">
+        <div class="card-value" data-kpi="units">0</div>
+        <div class="card-label">Units</div>
+        <div class="card-of" data-kpi-of="units">All rows</div>
+      </div>
+      <div class="tile card-visual">
+        <div class="card-value" data-kpi="value">0</div>
+        <div class="card-label">Value (AUD)</div>
+        <div class="card-of" data-kpi-of="value">All rows</div>
+      </div>
+      <div class="tile chart-tile">
+        <div class="tile-head">
+          <h2 class="tile-title">Value by destination</h2>
+        </div>
+        <div class="tile-body">
+          <svg class="chart" data-chart role="img" aria-label="Bar chart of value by destination, filtered by the table"></svg>
+        </div>
+        <p class="filters-on" data-filters-on aria-live="polite"></p>
+      </div>
+    </aside>
+  </div>
+
+  <div class="canvas">
+    <section class="tile span-7 how-tile" aria-labelledby="how">
+      <div class="tile-head">
+        <h2 class="tile-title" id="how">How the filters work</h2>
+        <span class="tile-note">The table above is the real visual, not a mock up</span>
+      </div>
+      <div class="tile-body">
+          <dl class="defs defs-wide">
+            <dt>Under every column</dt>
+            <dd>Text columns get a value list with search and a Blank option. Numbers get a range or a value search. Dates get a from and to. Active filters show as chips above the rows.</dd>
+            <dt>Real report filters</dt>
+            <dd>Selections go to Power BI as report filters, so cards, charts and other visuals respond as they would to a slicer, and bookmarks save them. A table-only search bar is there for quick lookups that should not touch the report.</dd>
+            <dt>Set up per column</dt>
+            <dd>Choose the aggregation for each column, so rates and percentages are never summed by accident. Keep the formats from your model, or override them. Add conditional colours that know when lower is better.</dd>
+            <dt>Built for big tables</dt>
+            <dd>Sorting, grouping with subtotals, totals, frozen columns, column move and resize, row selection, CSV export, and loading beyond 30,000 rows when you need them.</dd>
+          </dl>
+      </div>
+    </section>
+
+    <div class="span-5 stack">
+    <section class="tile" aria-labelledby="studio">
+      <div class="tile-head">
+        <h2 class="tile-title" id="studio">From od visuals</h2>
+      </div>
+      <div class="tile-body scroll-x">
+        <table class="grid-table">
+          <thead>
+            <tr><th scope="col">Visual</th><th scope="col">Status</th><th scope="col">Version</th><th scope="col">Price</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="filter-table.html">Filter Table</a></td>
+              <td><span class="status">Available</span> <span class="small muted">AppSource listing coming</span></td>
+              <td class="num">1.0.1</td>
+              <td>Free</td>
+            </tr>
+          </tbody>
         </table>
-    </div>
-</section>
+        <p class="small muted table-note">od visuals makes custom visuals for Power BI. Filter Table is the first.</p>
+      </div>
+    </section>
 
-<footer>
-    <div class="wrap">
-        Filter Table, a Power BI custom visual by Om Dave.
-        &nbsp;&middot;&nbsp; <a href="privacy.html">Privacy policy</a>
-        &nbsp;&middot;&nbsp; <a href="mailto:youhavereachedomdave@gmail.com">Contact</a>
+    <section class="tile get-tile" aria-labelledby="get">
+      <div class="tile-head">
+        <h2 class="tile-title" id="get">Get Filter Table</h2>
+      </div>
+      <div class="get-body">
+        <p>Filter Table is free. Download the file and add it in Power BI Desktop with <b>Get more visuals</b>, <b>Import a visual from a file</b>. A Microsoft AppSource listing is on its way.</p>
+        <div class="actions">
+          <a class="btn" href="downloads/FilterTable-1.0.1.pbiviz" download>Download Filter Table</a>
+          <a class="btn btn-quiet" href="filter-table.html">See everything it does</a>
+        </div>
+      </div>
+    </section>
     </div>
+  </div>
+</main>
+
+<footer class="foot">
+  <span>od visuals, 2026. Power BI is a trademark of Microsoft.</span>
+  <nav aria-label="Footer">
+    <a href="filter-table.html">Filter Table</a>
+    <a href="support.html">Support</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="mailto:youhavereachedomdave@gmail.com">youhavereachedomdave@gmail.com</a>
+  </nav>
 </footer>
 
+<script>window.powerbi = { visuals: {} };</script>
+<script src="assets/filter-table-1.0.1.js"></script>
+<script src="assets/sample-data.js"></script>
+<script src="assets/report.js"></script>
+<script>
+  ODReport.start({ mount: document.getElementById("mount"), tiles: document.getElementById("report"), preset: 0, hidden: ["Source", "Status"] });
+</script>
 </body>
 </html>
